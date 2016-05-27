@@ -17,10 +17,15 @@ impl Editor {
             (current_buffer.scroll_x, current_buffer.scroll_y)
         };
         let (pos_x, pos_y) = self.pos();
+
         // Redraw window
         self.window.set(Color::rgb(25, 25, 25));
 
         let w = self.window.width();
+
+        if self.options.line_numbers {
+            // pos_x += 1;
+        }
 
         if self.options.line_marker {
             self.window.rect(0,
@@ -32,15 +37,17 @@ impl Editor {
 
         let mut string = false;
 
-
         for (y, row) in self.buffers.current_buffer().lines().enumerate() {
-            println!("{}", y);
+            if self.options.line_numbers {
+                let _y = &*y.to_string();
+                println!("{}", &*y.to_string());
 
-            self.window.rect(0 as i32,
-                             y as i32 * 16,
-                             8,
-                             16,
-                             Color::rgb(45, 45, 45));
+                self.window.rect(0 as i32,
+                                 y as i32 * 16,
+                                 8,
+                                 16,
+                                 Color::rgb(45, 45, 45));
+            }
 
 
             for (x, c) in row.chars().enumerate() {
