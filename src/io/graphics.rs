@@ -35,13 +35,17 @@ impl Editor {
                              Color::rgb(45, 45, 45));
         }
 
+        self.window.rect(8 * (pos_x - scroll_x) as i32,
+                         16 * (pos_y - scroll_y) as i32,
+                         8,
+                         16,
+                         Color::rgb(255, 255, 255));
+
+
         let mut string = false;
 
         for (y, row) in self.buffers.current_buffer().lines().enumerate() {
             if self.options.line_numbers {
-                let _y = &*y.to_string();
-                println!("{}", &*y.to_string());
-
                 self.window.rect(0 as i32,
                                  y as i32 * 16,
                                  8,
@@ -104,11 +108,6 @@ impl Editor {
             }
         }
 
-        self.window.rect(8 * (pos_x - scroll_x) as i32,
-                         16 * (pos_y - scroll_y) as i32,
-                         8,
-                         16,
-                         Color::rgb(255, 255, 255));
 
         self.redraw_task = RedrawTask::None;
 
