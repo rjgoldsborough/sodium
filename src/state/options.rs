@@ -22,11 +22,8 @@ impl Options {
             debug: true, // TODO: Let this be `true` only in debug compilation cfg
             highlight: true,
             line_marker: true,
-<<<<<<< HEAD
             readonly: false,
-=======
             line_numbers: true,
->>>>>>> adding the line number option toggle work
         }
     }
 
@@ -37,11 +34,8 @@ impl Options {
             "debug" | "debug_mode" => Some(&mut self.debug),
             "highlight" | "hl" => Some(&mut self.highlight),
             "line_marker" | "linemarker" | "linemark" | "lm" => Some(&mut self.line_marker),
-<<<<<<< HEAD
             "readonly" | "ro" => Some(&mut self.readonly),
-=======
             "line_numbers" | "linenumbers" | "ln" => Some(&mut self.line_numbers),
->>>>>>> adding the line number option toggle work
             _ => None,
         }
     }
@@ -53,11 +47,8 @@ impl Options {
             "debug" | "debug_mode" => Some(self.debug),
             "highlight" | "hl" => Some(self.highlight),
             "line_marker" | "linemarker" | "linemark" | "lm" => Some(self.line_marker),
-<<<<<<< HEAD
             "readonly" | "ro" => Some(self.readonly),
-=======
             "line_numbers" | "linenumbers" | "ln" => Some(self.line_numbers),
->>>>>>> adding the line number option toggle work
             _ => None,
         }
     }
